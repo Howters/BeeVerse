@@ -57,7 +57,7 @@ class AnnouncementController extends Controller
         $latest_announcements = Announcement::where('id', '!=', $id)
                                             ->orderBy('created_at', 'desc')
                                             ->get();
-        return view('announcement-detail', compact('announcement','latest_announcements'));
+        return view('announcementDetail', compact('announcement','latest_announcements'));
     }
 
     /**
