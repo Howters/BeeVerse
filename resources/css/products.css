@@ -1,0 +1,441 @@
+*{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.icon-hover:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+  }
+
+.icon-hover:hover i {
+    color: #3b71ca !important;
+  }
+
+
+.widget-blog-author-image {
+    float: left;
+    padding: 5px;
+    border-radius: 70px;
+    width: 45px;
+    height: 45px;
+    /* background: #fff; */
+    position: relative;
+    margin-left: -3px;
+}
+
+.widget-blog-author-image img {
+    max-width: 100%;
+    border-radius: 70px;
+}
+
+.widget-blog-author-info {
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.widget-blog-author-info h6 {
+    size: 0px;
+    align-items: center;
+    /* margin-top: 20px; */
+    color: #3b71ca;
+    font-weight: bold;
+}
+*{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+main {
+    flex: 1;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-fixed {
+    border-left: 1px solid #c8dbe9;
+    right: 0px;
+    width: 100%! important; /* Ensure the image fills the container's width */
+    height: 250px !important; /* Ensure the image fills the container's height */
+    object-fit: cover;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add {
+    margin: 30px;
+    margin-right: 0;
+}
+
+.buttons-container, .updateDeleteButton{
+    display: flex;
+    justify-content: space-around;
+}
+
+.updateDeleteButton {
+    font-size: 70%;
+}
+
+/* .buttons-container button,  .updateDeleteButton button{
+    padding: 1em 3em;
+    border-radius: 10px;
+    border: none;
+    background-color: #1F2C39;
+    color: #F8CB68;
+} */
+
+/* .buttons-container button a, .updateDeleteButton button a{
+    text-decoration: none;
+    color: #F8CB68;
+} */
+/*
+.add button {
+    padding: .5em 1.2em;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #192630;
+    color: #F8CB68;
+} */
+
+.addPopUp, .updatePopUp {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+.updatePopUp{
+    display: block;
+}
+
+.addPopUp .closeButton {
+    text-align: right;
+}
+
+.addPopUp .closeButton .closeButtonIcon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.addPopUp h1, .updatePopUp h1 {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.addPopUp label, .updatePopUp label {
+    font-weight: bold;
+}
+
+.addPopUp form .addPopUpInput, .updatePopUp form .addPopUpInput {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp, .updatePopUp form .addPopUpInput .leftAddPopUp{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 30px;
+}
+
+.addPopUp form .addPopUpInput .leftAddPopUp div, .updatePopUp form .addPopUpInput .leftAddPopUp div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.addPopUp form .addPopUpInput .rightAddPopUp div, .updatePopUp form .addPopUpInput .rightAddPopUp div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.addPopUp form .addPopUpInput .leftAddPopUp div input, .updatePopUp form .addPopUpInput .leftAddPopUp div input {
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.addPopUp form .addPopUpInput .rightAddPopUp div input, textarea, .updatePopUp form .addPopUpInput .leftAddPopUp div input {
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.addPopUp form .addPopUpInput .rightAddPopUp div textarea, .updatePopUp form .addPopUpInput .rightAddPopUp div textarea {
+    resize: none;
+}
+
+.addPopUp form .button, .updatePopUp form .button {
+    text-align: center;
+}
+
+.overlay, .overlay-update {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.overlay-update{
+    display: block;
+}
+
+.delete-popup{
+    padding: 2em;
+    border-radius: 20px;
+    background-color: #F29559;
+    width: 50em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    display: none;
+}
+
+.delete-container{
+    background-color: white;
+    border-radius: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    height: 20em;
+    text-align: center;
+}
+
+.delete-container h1{
+    font-weight: bold;
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 3em;
+    /* width: 30em; */
+}
+
+.contents p{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.contents p span{
+    color: red;
+}
+
+.buttons{
+    display: flex;
+    gap: 5em;
+    justify-content: center;
+}
+
+.buttons .cancel{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #192630;
+    color: #F8CB68;
+    box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.buttons .delete{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #F8CB68;
+    color: #192630;
+    box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.buttons .delete:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+
+.buttons .cancel:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+
+#bold {
+    font-weight: 600;
+}
+
+@media(max-width: 1366px) {
+    html {
+        font-size: 95%;
+    }
+
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+        width: 325px;
+    }
+
+    .updateDeleteButton {
+        font-size: 50%;
+    }
+}
+
+@media(max-width: 768px) {
+    body,html{
+        overflow-x: hidden;
+    }
+    html {
+        font-size: 85%;
+    }
+
+    .addPopUp, .updatePopUp {
+        transform: translate(-50%, -50%) scale(0.75);
+    }
+
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+        width: 300px;
+    }
+
+    .updateDeleteButton {
+        font-size: 30%;
+    }
+}
+
+@media(max-width:867px){
+    body,html{
+        overflow-x: hidden;
+    }
+    .card-title{
+        font-size: 1em;
+    }
+    .delete-container h1{
+        font-size: 1.8em;
+    }
+    .buttons-container, .updateDeleteButton{
+       display: flex;
+       flex-direction: column;
+       font-size: .8em;
+       gap: .5em;
+    }
+    .delete-popup{
+        padding: 1.5em;
+        width: 40em;
+    }
+
+    .delete-container{
+        height: 15em;
+    }
+
+    .contents p{
+        font-size: 1.2em;
+    }
+
+    .buttons{
+        gap: 2.5em;
+    }
+}
+
+@media(max-width: 600px) {
+    body,html{
+        overflow-x: hidden;
+    }
+    html {
+        font-size: 75%;
+    }
+
+    .addPopUp form .addPopUpInput, .updatePopUp form .addPopUpInput  {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp, .updatePopUp form .addPopUpInput .leftAddPopUp{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .updateDeleteButton {
+        font-size: 10%;
+    }
+}
+.card-custom {
+    overflow: hidden;
+    width: 350px;
+    min-height: 450px;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.2);
+  }
+
+  .card-custom-img {
+    height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: #4885e0;
+  }
+
+  /* First border-left-width setting is a fallback */
+  .card-custom-img::after {
+    position: absolute;
+    content: '';
+    top: 161px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-width: 40px;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 545px;
+    border-left-width: calc(575px - 5vw);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: inherit;
+  }
+
+  .card-custom-avatar img {
+    border-radius: 50%;
+    border: 1px solid #0d6efd;
+    /* box-shadow: 0 0 15px rgba(10, 10, 10, 0.3); */
+    position: absolute;
+    top: 100px;
+    left: 1.25rem;
+    width: 100px;
+    height: 100px;
+  }
+  .swiper-next,
+  .swiper-prev{
+    color: var(--black-color);
+    z-index: 9999;
+  }
+  .swiper-button-disabled{
+    color: var(--gray-color-500);
+  }
+
+  @media only screen and (max-width: 765px) {
+    section#billboard{
+      height: 100vh !important;
+    }
+  }
+
+.card-img-top{
+    width: auto;
+    height: 220px;
+}
