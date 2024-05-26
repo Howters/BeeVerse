@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Products</title>
-    @vite('resources/css/products.css')
+    {{-- @vite('resources/css/products.css') --}}
+    <link rel="stylesheet" href="{{ asset('css/products.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -369,7 +370,7 @@
                             <h4 class="mb-1 me-1 fw-bold">Rp{{ number_format($product->price, 0, ',', '.') }}</h4>
                             {{-- <span class="text-danger"><s>$49.99</s></span> --}}
                             </div>
-                            <p class="card-text">{{$product->short_description}}</p>
+                            <p class="card-text" style="height:155px;">{{$product->short_description}}</p>
                             <div class="card-footer pt-3 px-2 pb-3">
                                 <div class="widget-blog-author mb-1">
                                     <div class="widget-blog-author-image">
