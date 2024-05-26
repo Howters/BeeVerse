@@ -25,44 +25,37 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="/assets/201-1-binusacid.jpg" alt="Your Image Description" width="100%" height="100%">
-            <div class="container">
+            <img src="/assets/BTT.jpg" alt="Your Image Description" width="100%" height="100%">
+            {{-- <div class="container">
               <div class="carousel-caption text-start">
                 <h1>BNCC TechnoTalk II</h1>
                 <p class="opacity-75">Ini adalah event teknologi bertema AI dari BNCC</p>
                 <p><a class="btn btn-lg btn-primary" href="#">Sign up now</a></p>
               </div>
-            </div>
+            </div> --}}
           </div>
           <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Comserv 10 jam!</h1>
-                <p>Cat trotoar bisa dapat comserv 10 jam dari tfi?</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-              </div>
-            </div>
+            <img src="/assets/hq720.jpg" alt="Your Image Description" width="100%" height="100%">
           </div>
           <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
-            <div class="container">
+            <img src="/assets/bnec-poster.png" alt="Your Image Description" width="100%" height="100%">
+            {{-- <div class="container">
               <div class="carousel-caption text-end">
                 <h1>HIMSHOT 2024</h1>
                 <p>Event terbesar yang diselenggarakan oleh HIMTI.</p>
                 <p><a class="btn btn-lg btn-primary" href="#">Learn More</a></p>
               </div>
-            </div>
+            </div> --}}
           </div>
           <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-primary-color)"/></svg>
-            <div class="container">
+            <img src="/assets/himmat.png" alt="Your Image Description" width="100%" height="100%">
+            {{-- <div class="container">
               <div class="carousel-caption text-end">
                 <h1>TechnoScape 2024</h1>
                 <p>Seminar, Talkshow, Hackathon. Event terbesar dari BNCC</p>
                 <p><a class="btn btn-lg btn-primary" href="#">Join sekarang</a></p>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
