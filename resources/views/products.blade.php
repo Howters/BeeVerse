@@ -376,7 +376,7 @@
                                         <img src="{{asset($product->ukm->logo)}}" alt="">
                                     </div>
                                     <div class="widget-blog-author-info">
-                                        <a href="">{{$product->ukm->short_name}}</a>
+                                        <a href="/{{$product->ukm->short_name}}">{{$product->ukm->short_name}}</a>
                                     </div>
                                 </div>
                             <a href="/product/{{$product->id}}"class="btn btn-primary shadow-0 me-1">Detail</a>
