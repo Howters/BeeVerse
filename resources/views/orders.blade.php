@@ -52,7 +52,7 @@
                             <td>{{$order->user_id}}</td>
                             <td>{{$order->user->phone_number}}</td>
                             <td><a href="/product/{{$order->product_id}}">{{$order->product_id}}</a></td>
-                            <td><a href="/ukm/{{$order->ukm->short_name}}">{{$order->ukm->short_name}}</a></td>
+                            <td><a href="/{{$order->ukm->short_name}}">{{$order->ukm->short_name}}</a></td>
                             <td><a href="{{asset($order->payment_image)}}" target="_blank"> {{$order->payment_image}}</a></td>
                             <td>{{$order->payment_status}}</td>
                             @if($user->is_admin==1 && $order->payment_status=="pending")
