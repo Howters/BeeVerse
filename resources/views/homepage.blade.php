@@ -78,36 +78,29 @@
             <div class="card-body">
                 <h2 class="text-center mb-4">List UKM</h2>
                 <hr class="mb-4">
-                    <div class="d-flex flex-wrap justify-content-evenly">
-                        @forelse ($ukms  as $ukm)
-                        <div class="card card-custom bg-white border-white border-0 mb-5 mt-2 mx-2">
-                            <div class="card-custom-img" style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                            <div class="card-custom-avatar">
-                              <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
-                            </div>
-                            <div class="card-body" style="overflow-y: auto">
-                              <h4 class="card-title fw-bold">BNCC</h4>
-                              <p class="card-text">BNCC (Bina Nusantara Computer Club) adalah UKM BINUS berbasis komputer yang sangat mantap anjay</p>
-                            </div>
-                            <div class="card-footer" style="background: inherit; border-color: inherit;">
-                              <a href="/{{$ukm->short_name}}" class="btn btn-lg btn-primary">Detail</a>
-                            </div>
-                          </div>
-                            {{-- <div class="card m-3 rounded-3"
-                                style="width: 17.3%; background-color: #f29559; border: none;">
-                                <a href="{{ route('detail', $movie->MovieID) }}"
-                                    style="text-decoration: none; color: black">
-                                    <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
-                                        class="card-img-top rounded" alt="" style="width: 100%">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $movie->Title }}</h5>
-                                    </div>
-                                </a>
-                            </div> --}}
-                        @empty
-                            <h5 class="mx-4 mt-3">Empty</h5>
-                        @endforelse
-                    </div>
+                <div class="d-flex flex-wrap justify-content-evenly">
+                    @forelse ($ukms  as $ukm)
+                    <div class="card card-custom bg-white border-white border-0 mb-5 mt-2 mx-2">
+                        <div class="card-custom-img" style="background-image: url('{{ asset($ukm->banner) }}')"></div>
+                        <div class="card-custom-avatar">
+                          <img class="img-fluid" src="{{ asset($ukm->logo) }}" alt="Avatar" />
+                        </div>
+                        <div class="card-body" style="overflow-y: auto">
+                          <h4 class="card-title fw-bold">{{$ukm->short_name}}</h4>
+                          <p class="card-text">{{$ukm->short_description}}</p>
+                        </div>
+                        <div class="card-footer" style="background: inherit; border-color: inherit;">
+                          <a href="/{{$ukm->short_name}}" class="btn btn-lg btn-primary">Detail</a>
+                        </div>
+                        <div class="updateDeleteButton buttons-container mb-5">
+                            <button type="button" class="edit-btn btn"><a href="/edit-movie/{{$ukm->id}}"><i class="bi bi-pencil-fill"></i></a></button>
+                            <button type="button" class="delete-btn btn"><a onclick="openModal({{$ukm->id}})" style="color: red;"><i data-feather="trash-2"></i></a></button>
+                        </div>
+                      </div>
+                    @empty
+                        <h5 class="mx-4 mt-3">Empty</h5>
+                    @endforelse
+                </div>
                     <hr class="mb-4">
                 <div class="container-fluid mt-5 d-flex justify-content-center">
                     {{ $ukms->onEachSide(1)->render() }}
