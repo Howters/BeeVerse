@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ukm_id');
-            $table->foreign('seller_id')->references('id')->on('ukms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ukm_id')->references('id')->on('ukms')->onDelete('cascade')->onUpdate('cascade');
             $table->string('image');
             $table->string('name');
             $table->decimal('price', 15, 2);
