@@ -70,7 +70,7 @@
 </div>
 <x-footer />
 </body>
-<script src="{{asset('js/register.js')}}"></script>
+<script src="/js/register.js"></script>
 <script>
     const hamburgerBars = document.getElementById('hamburgerIcon');
         const links = document.querySelector('.container-navbar .links');

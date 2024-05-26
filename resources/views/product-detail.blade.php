@@ -274,7 +274,7 @@
           </section>
     <x-footer />
 </body>
-<script src="{{asset('js/products-detail.js')}}"></script>
+<script src="/js/products-detail.js"></script>
 <script>
 
 function updateReceipt() {

@@ -55,6 +55,6 @@
 </div>
 <x-footer />
 </body>
-<script src="{{asset('js/login.js')}}"></script>
+<script src="/js/login.js"></script>
 
 </html>
