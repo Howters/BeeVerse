@@ -152,7 +152,7 @@
                                           <p class="card-text">{{$ukm->short_description}}</p>
                                         </div>
                                         <div class="card-footer" style="background: inherit; border-color: inherit;">
-                                          <a href="/detail/1" class="btn btn-lg btn-primary">Detail</a>
+                                          <a href="/{{$ukm->short_name}}" class="btn btn-lg btn-primary">Detail</a>
                                         </div>
                                         <div class="updateDeleteButton buttons-container mb-5">
                                             <button type="button" class="edit-btn btn"><a href="/edit-movie/{{$ukm->id}}"><i class="bi bi-pencil-fill"></i></a></button>
