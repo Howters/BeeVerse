@@ -11,8 +11,10 @@
     {{-- @vite('resources/css/detail.css') --}}
 
     {{-- <link rel="stylesheet" href="{{ asset('css/detail.css') }}> --}}
-    <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
-    
+    {{-- <link rel="stylesheet" href="{{ asset('css/detail.css') }}"> --}}
+    <link rel="stylesheet" href="css/detail.css">
+
+
     <style>
 
     </style>

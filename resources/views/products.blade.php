@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Products</title>
     {{-- @vite('resources/css/products.css') --}}
-    <link rel="stylesheet" href="{{ asset('css/products.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/products.css') }}"> --}}
+    <link rel="stylesheet" href="css/products.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -362,7 +363,7 @@
 
                 <div class="row">
                 @forelse ($products  as $product)
-                    <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
+                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
                         <div class="card w-100 my-2 shadow-2-strong">
                             <a href="/product/{{$product->id}}"><img src="{{ asset($product->image) }}" class="card-img-top" /></a>
                         <div class="card-body d-flex flex-column">
@@ -370,7 +371,7 @@
                             <h4 class="mb-1 me-1 fw-bold">Rp{{ number_format($product->price, 0, ',', '.') }}</h4>
                             {{-- <span class="text-danger"><s>$49.99</s></span> --}}
                             </div>
-                            <p class="card-text" style="height:155px;">{{$product->short_description}}</p>
+                            <p class="card-text" style="height:180px;">{{$product->short_description}}</p>
                             <div class="card-footer pt-3 px-2 pb-3">
                                 <div class="widget-blog-author mb-1">
                                     <div class="widget-blog-author-image">

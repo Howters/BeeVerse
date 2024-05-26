@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="{{ asset('css/adminPanel.css') }}">
     {{-- <link rel="stylesheet" href="../../public/css/adminPanel.css"> --}}
+    <link rel="stylesheet" href="css/adminPanel.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -68,7 +68,7 @@
                                                 <span id="errorMessage6" style="color: red;"></span>
                                             </div>
                                         </div>
-                    
+
                                         <div class="rightAddPopUp">
                                             <div>
                                                 <label for="">Description</label>
@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
                                     </div>
-                    
+
                                     <div class="button">
                                         <button type="submit">Submit</button>
                                     </div>
@@ -136,7 +136,7 @@
                             <button type="button" onclick="openAddPopUp()">Add Movie</button>
                         </div>
                     </div>
-                    
+
                     <div class="card" style="background-color: #f29559">
                         <div class="d-flex flex-wrap">
                             @forelse ($upcomingMovies  as $movie)
@@ -160,7 +160,7 @@
                             @endforelse
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="container mt-5 d-flex justify-content-center">
                     {{ $upcomingMovies->render() }}

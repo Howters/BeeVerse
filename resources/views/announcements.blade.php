@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Announcement</title>
     {{-- @vite('resources/css/announcements.css') --}}
-    <link rel="stylesheet" href="{{ asset('css/announcements.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/announcements.css') }}"> --}}
+    <link rel="stylesheet" href="css/announcements.css">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
