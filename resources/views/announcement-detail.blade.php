@@ -22,8 +22,8 @@
                     <article class="article">
                         <div class="article-img">
                             <img src="{{asset($announcement->image)}}" title="" alt="">
-                            <a href="{{$announcement->links}}">{{$announcement->links}}</a>
                         </div>
+                        <a href="{{$announcement->links}}">{{$announcement->links}}</a>
                         <br>
                         <div class="article-title">
                             <h2>{{$announcement->title}}</h2>
