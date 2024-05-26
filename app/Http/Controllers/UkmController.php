@@ -46,12 +46,12 @@ class UkmController extends Controller
         $logoFileName = $request->file('Logo')->getClientOriginalName();
         $bannerFileName = $request->file('Banner')->getClientOriginalName();
 
-        $logoPath = $request->file('Logo')->storeAs('public/' . $shortName, $logoFileName);
-        $bannerPath = $request->file('Banner')->storeAs('public/' . $shortName, $bannerFileName);
+        $logoPath = $request->file('Logo')->storeAs('public/logo' . $shortName, $logoFileName);
+        $bannerPath = $request->file('Banner')->storeAs('public/banner' . $shortName, $bannerFileName);
 
         Ukm::create([
-            'logo' =>'storage/' . $shortName . '/' . $logoFileName,
-            'banner' => 'storage/' . $shortName . '/' . $bannerFileName,
+            'logo' =>'storage/logo' . $shortName . '/' . $logoFileName,
+            'banner' => 'storage/banner' . $shortName . '/' . $bannerFileName,
             'short_name' => $request->ShortName,
             'long_name' => $request->LongName,
             'short_description' => $request->ShortDescription,
