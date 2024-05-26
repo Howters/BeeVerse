@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Announcement</title>
     {{-- @vite('resources/css/announcements-detail.css') --}}
-    <link rel="stylesheet" href="{{ asset('css/announcements-detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/announcementsDetail.css') }}">
     {{-- <link rel="stylesheet" href="css/announcements-detail.css"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
