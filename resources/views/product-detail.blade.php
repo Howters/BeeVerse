@@ -225,7 +225,7 @@
                             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                             <div class="card-body">
                                     <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action">
+                                        <a href="/{{$product->ukm->short_name}}" class="list-group-item list-group-item-action">
                                             <div class="d-flex align-items-center pb-1" id="tooltips-container">
                                                 <img src="{{asset($product->ukm->logo)}}" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
                                                 <div class="w-100 ms-2">
