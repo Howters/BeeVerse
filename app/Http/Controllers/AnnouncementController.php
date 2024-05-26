@@ -47,7 +47,7 @@ class AnnouncementController extends Controller
             'long_description' => $request->LongDescription,
         ]);
 
-        return redirect('/admin-panel');
+        return redirect('/announcements');
 
     }
 
