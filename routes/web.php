@@ -1,13 +1,11 @@
 <?php
 
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\MovieController;
-use App\Http\Controllers\bookTicketController;
-use App\Http\Controllers\listBookedController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UkmController;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Route;
@@ -22,16 +20,29 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::middleware('auth', 'is_admin')->group(function () {
+    Route::get('/admin-panel', [UkmController::class, 'index'])->name('admin.panel');
+    Route::post('/add-ukm', [UkmController::class, 'create'])->name('add.ukm');
+    Route::post('/add-announcement', [AnnouncementController::class, 'create'])->name('add.announcement');
+    Route::post('/add-product', [ProductController::class, 'create'])->name('add.product');
+    Route::get('/edit-movie/{id}', [MovieController::class, 'show'])->name('edit.movie');
+    Route::post('/verify-order', [OrderController::class, 'verify'])->name('verify.order');
+    Route::patch('/update-movie/{id}', [MovieController::class, 'update'])->name('update.movie');
+    Route::delete('/delete-movie/{id}', [MovieController::class, 'destroy'])->name('delete.movie');
+});
 
 Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+->name('login');
+Route::get('register', [RegisteredUserController::class, 'create'])
+->name('register');
 Route::get('/announcements', [AnnouncementController::class, 'index'])->name('get.announcements.homepage');
 Route::get('/announcement/{id}', [AnnouncementController::class, 'detail'])->name('announcement.detail');
+Route::get('/products', [ProductController::class, 'index'])->name('get.products.homepage');
+Route::get('/order-list', [OrderController::class, 'index'])->name('get.order');
 Route::get('/{name}', [UkmController::class, 'detail'])->name('ukm.detail');
 
-Route::get('/products', [ProductController::class, 'index'])->name('get.products.homepage');
-
 Route::post('/add-order', [OrderController::class, 'create'])->name('add.order');
-Route::get('/order-list', [OrderController::class, 'index'])->name('get.order');
 
 
 Route::get('/list-theater', function () {
@@ -49,18 +60,6 @@ Route::get('/products-detail', function () {
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
-
-
-Route::middleware('auth', 'is_admin')->group(function () {
-    Route::get('/admin-panel', [UkmController::class, 'index'])->name('admin.panel');
-    Route::post('/add-ukm', [UkmController::class, 'create'])->name('add.ukm');
-    Route::post('/add-announcement', [AnnouncementController::class, 'create'])->name('add.announcement');
-    Route::post('/add-product', [ProductController::class, 'create'])->name('add.product');
-    Route::get('/edit-movie/{id}', [MovieController::class, 'show'])->name('edit.movie');
-    Route::post('/verify-order', [OrderController::class, 'verify'])->name('verify.order');
-    Route::patch('/update-movie/{id}', [MovieController::class, 'update'])->name('update.movie');
-    Route::delete('/delete-movie/{id}', [MovieController::class, 'destroy'])->name('delete.movie');
-});
 
 
 
