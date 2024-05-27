@@ -72,7 +72,7 @@
             <div class="card-body">
                 <h2 class="text-center mb-4">List UKM</h2>
                 <hr class="mb-4">
-                <div class="d-flex flex-wrap justify-content-evenly">
+                <div class="container-custom">
                     @forelse ($ukms  as $ukm)
                     <div class="card card-custom bg-white border-white border-0 mb-5 mt-2 mx-2">
                         <div class="card-custom-img" style="background-image: url('{{ asset($ukm->banner) }}')"></div>
@@ -94,6 +94,23 @@
                     @empty
                         <h5 class="mx-4 mt-3">Empty</h5>
                     @endforelse
+                    <div class="card card-custom bg-white border-white border-0 mb-5 mt-2 mx-2">
+                        <div class="card-custom-img" style="background-image: url('{{ asset($ukm->banner) }}')"></div>
+                        <div class="card-custom-avatar">
+                          <img class="img-fluid" src="{{ asset($ukm->logo) }}" alt="Avatar" />
+                        </div>
+                        <div class="card-body" style="overflow-y: auto">
+                          <h4 class="card-title fw-bold">{{$ukm->short_name}}</h4>
+                          <p class="card-text">{{$ukm->short_description}}</p>
+                        </div>
+                        <div class="card-footer" style="background: inherit; border-color: inherit;">
+                          <a href="/{{$ukm->short_name}}" class="btn btn-lg btn-primary">Detail</a>
+                        </div>
+                        <div class="updateDeleteButton buttons-container mb-5">
+                            <button type="button" class="edit-btn btn"><a href="/edit-movie/{{$ukm->id}}"><i class="bi bi-pencil-fill"></i></a></button>
+                            <button type="button" class="delete-btn btn"><a onclick="openModal({{$ukm->id}})" style="color: red;"><i data-feather="trash-2"></i></a></button>
+                        </div>
+                      </div>
                 </div>
                     <hr class="mb-4">
                 <div class="container-fluid mt-5 d-flex justify-content-center">

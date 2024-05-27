@@ -41,7 +41,12 @@
     background-position: center;
     border-color: inherit;
   }
+    .container-custom{
+        display: grid;
+        grid-template-columns: repeat(3,auto);
+        justify-content: space-evenly;
 
+    }
   /* First border-left-width setting is a fallback */
   .card-custom-img::after {
     position: absolute;
@@ -62,6 +67,9 @@
     border-left-color: inherit;
   }
 
+  .card-text{
+    text-align:justify;
+  }
   .card-custom-avatar img {
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
