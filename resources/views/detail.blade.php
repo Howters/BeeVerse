@@ -32,7 +32,7 @@
                     <h1 class="mb-3 fw-bold text-center">{{$ukm->short_name}}</h1>
                     <hr>
                     <div class="row justify-content-center">
-                        <div class="col-md-4 col-lg-3 mb-5 mb-lg-0 wow fadeIn">
+                        <div class="col-md-4 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
                             <div class="card border-0 shadow">
                                 <img src="{{asset($ukm->logo)}}">
                                 <div class="card-body p-1-9 p-xl-4">
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-8">
                             <div class="ps-lg-1-6 ps-xl-5">
                                 <div class="mb-5 wow fadeIn">
                                     <div class="text-start mb-1-6 wow fadeIn">
@@ -107,7 +107,7 @@
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                         <div class="row">
                                             @forelse ($products  as $product)
-                                                <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
+                                                <div class="col-lg-5 col-md-6 col-sm-6 d-flex">
                                                     <div class="card w-100 my-2 shadow-2-strong">
                                                         <a href="/product/{{$product->id}}"><img src="{{ asset($product->image) }}" class="card-img-top" /></a>
                                                     <div class="card-body d-flex flex-column">
