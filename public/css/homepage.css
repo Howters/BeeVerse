@@ -45,7 +45,6 @@
         display: grid;
         grid-template-columns: repeat(3,auto);
         justify-content: space-evenly;
-
     }
   /* First border-left-width setting is a fallback */
   .card-custom-img::after {
