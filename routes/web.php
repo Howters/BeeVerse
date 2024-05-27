@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::middleware('auth', 'is_admin')->group(function () {
     Route::get('/admin-panel', [UkmController::class, 'index'])->name('admin.panel');
     Route::post('/add-ukm', [UkmController::class, 'create'])->name('add.ukm');

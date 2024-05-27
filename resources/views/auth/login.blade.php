@@ -38,7 +38,7 @@
                         <span id="passwordError" class="error"></span>
                     </div>
                     @error('email')
-                        <div class="error">{{ $message }}</div>
+                        <span class="error">{{ $message }}</span>
                     @enderror
                    <div class="input-field">
 
