@@ -342,8 +342,21 @@
                     </div>
                 </div>
                 <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
-                <strong class="d-block py-2">{{$count}} Items found </strong>
+                    <form action="{{ url('/products') }}" method="GET">
+                            <div class="input-group rounded">
+                                <strong class="d-block py-2 " style="margin-right: 20px">{{$count}} Items found </strong>
+                                <div class="form-outline" data-mdb-input-init>
+                                <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                </div>
+                                <span class="input-group-text border-0 mx-1" id="search-addon">
+                                <i class="bi bi-search"></i>
+                                </span>
+                            <i class="bi bi-sort-numeric-down mx-2 sort-icon h3" data-sort="asc"></i>
+                        <i class="bi bi-sort-numeric-up sort-icon h3" data-sort="desc"></i>
+                            </div>
+                    </form>
                 <div class="ms-auto">
+
                     <select class="form-select d-inline-block w-auto border pt-1">
                     <option value="0">Best match</option>
                     <option value="1">Recommended</option>
@@ -361,14 +374,17 @@
                 </div>
                 </header>
 
-                <div class="row">
+                <div class="row container-custom">
                 @forelse ($products  as $product)
                     <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
                         <div class="card w-100 my-2 shadow-2-strong">
                             <a href="/product/{{$product->id}}"><img src="{{ asset($product->image) }}" class="card-img-top" /></a>
                         <div class="card-body d-flex flex-column">
-                            <div class="d-flex flex-row">
-                            <h4 class="mb-1 me-1 fw-bold">Rp{{ number_format($product->price, 0, ',', '.') }}</h4>
+                            <div class="d-flex flex-column">
+                                <div class="mb-2">
+                                    <h4 class="mb-1 me-1 fw-bold">{{ \Illuminate\Support\Str::limit($product->name, 18) }}</h4>
+                                </div>
+                            <h5 class="mb-2 me-1 fw-bold  text-primary">Rp{{ number_format($product->price, 0, ',', '.') }}</h5>
                             {{-- <span class="text-danger"><s>$49.99</s></span> --}}
                             </div>
                             <p class="card-text" style="height:180px;">{{$product->short_description}}</p>
@@ -406,5 +422,33 @@
 
     <x-footer />
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        $(document).ready(function() {
+            function fetchProducts(query, sort) {
+                $.ajax({
+                    url: "{{ url('/products') }}",
+                    type: "GET",
+                    data: { search: query, sort: sort },
+                    success: function(data) {
+                        $('.container-custom').html($(data).find('.container-custom').html());
+                    }
+                });
+            }
+
+            var sort = 'asc';
+
+            $('input[name="search"]').on('keyup', function() {
+                var query = $(this).val();
+                fetchProducts(query, sort);
+            });
+
+            $('.sort-icon').on('click', function() {
+                sort = $(this).data('sort');
+                var query = $('input[name="search"]').val();
+                fetchProducts(query, sort);
+            });
+        });
+</script>
 
 </html>

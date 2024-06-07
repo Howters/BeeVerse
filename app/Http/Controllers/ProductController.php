@@ -12,10 +12,21 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(9, ['*'], 'list_product');
-        $count = $products->count();
+        $query = $request->input('search');
+        $sort = $request->input('sort', 'asc');
+
+        $products = Product::query();
+
+        if ($query) {
+            $products->where('name', 'LIKE', "%{$query}%");
+        }
+
+        $products->orderBy('price', $sort);
+
+        $products = $products->paginate(9, ['*'], 'list_product');
+        $count = $products->total();
         $user = auth()->user();
         $ukms = Ukm::all();
         // $ukms = Ukm::paginate(10, ['*'], 'list_ukm');
