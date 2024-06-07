@@ -42,9 +42,11 @@
     border-color: inherit;
   }
     .container-custom{
+        margin-top: 10px;
         display: grid;
         grid-template-columns: repeat(3,auto);
-        justify-content: space-evenly;
+        justify-content: start;
+        gap: 100px;
     }
   /* First border-left-width setting is a fallback */
   .card-custom-img::after {

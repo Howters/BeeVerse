@@ -44,10 +44,23 @@ class MovieController extends Controller
     //     ]);
     //     // return view('homepage', compact('upcomingMovies', 'nowMovies', 'movies'));
     // }
-    public function index2()
+    public function index2(Request $request)
     {
-        $ukms = Ukm::paginate(9, ['*'], 'list_ukm');
-        return view('homepage', compact('ukms'));
+        $query = $request->input('search');
+    $sort = $request->input('sort', 'asc');
+
+    $ukms = Ukm::query();
+
+    if ($query) {
+        $ukms->where('short_name', 'LIKE', "%{$query}%")
+             ->orWhere('long_name', 'LIKE', "%{$query}%");
+    }
+
+    $ukms->orderBy('short_name', $sort);
+
+    $ukms = $ukms->paginate(9, ['*'], 'list_ukm');
+
+    return view('homepage', compact('ukms'));
     }
 
 
