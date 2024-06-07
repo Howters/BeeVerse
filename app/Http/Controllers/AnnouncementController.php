@@ -11,9 +11,16 @@ class AnnouncementController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $announcements = Announcement::all();
+
+        $ukmId = $request->input('ukm_id');
+
+        if ($ukmId) {
+            $announcements = Announcement::where('ukm_id', $ukmId)->get();
+        } else {
+            $announcements = Announcement::all();
+        }
         $user = auth()->user();
         $ukms = Ukm::all();
         return view('announcements', compact('announcements','ukms','user'));

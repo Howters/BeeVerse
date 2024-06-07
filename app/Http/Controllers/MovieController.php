@@ -47,20 +47,20 @@ class MovieController extends Controller
     public function index2(Request $request)
     {
         $query = $request->input('search');
-    $sort = $request->input('sort', 'asc');
+        $sort = $request->input('sort', 'asc');
 
-    $ukms = Ukm::query();
+        $ukms = Ukm::query();
 
-    if ($query) {
-        $ukms->where('short_name', 'LIKE', "%{$query}%")
-             ->orWhere('long_name', 'LIKE', "%{$query}%");
-    }
+        if ($query) {
+            $ukms->where('short_name', 'LIKE', "%{$query}%")
+                ->orWhere('long_name', 'LIKE', "%{$query}%");
+        }
 
-    $ukms->orderBy('short_name', $sort);
+        $ukms->orderBy('short_name', $sort);
 
-    $ukms = $ukms->paginate(9, ['*'], 'list_ukm');
+        $ukms = $ukms->paginate(9, ['*'], 'list_ukm');
 
-    return view('homepage', compact('ukms'));
+        return view('homepage', compact('ukms'));
     }
 
 

@@ -23,6 +23,18 @@
         <h2 class="text-center mb-4">Announcement</h2>
         <hr>
         <div class="menu">
+            <!-- Example single danger button -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select UKM
+                    </button>
+                    <ul class="dropdown-menu" id="ukm-dropdown">
+                        <li><a class="dropdown-item" href="#" data-ukm-id="">All</a></li>
+                        @foreach ($ukms as $ukm)
+                            <li><a class="dropdown-item" href="#" data-ukm-id="{{ $ukm->id }}">{{ $ukm->short_name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
             <div class="add">
                 <button class="btn btn-primary" type="button" style="visibility: hidden;">Add Announcement</button>
             </div>
@@ -100,35 +112,57 @@
                 <div class="overlay" id="overlay" onclick="closeAddPopUp()"></div>
             </div>
         </div>
-        @forelse ($announcements  as $announcement)
-        <div class="card box-shadow h-md-250 mb-4">
-            <div class="row g-0">
-                <div class="col-md-8 d-flex flex-column justify-content-between p-4">
-                    <div>
-                        <strong class="d-inline-block mb-2 text-primary">{{$announcement->ukm->short_name}}</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="/announcement/{{$announcement->id}}">{{$announcement->title}}</a>
-                        </h3>
-                        <br>
-                        <div class="mb-1 text-muted">{{$announcement->created_at->toDateString()}}</div>
-                        <p class="card-text mb-auto">{{$announcement->short_description}}.</p>
+        <!-- Example single danger button -->
+
+        <div id="announcements-container">
+            @forelse ($announcements as $announcement)
+                <div class="card box-shadow h-md-250 mb-4">
+                    <div class="row g-0">
+                        <div class="col-md-8 d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <strong class="d-inline-block mb-2 text-primary">{{ $announcement->ukm->short_name }}</strong>
+                                <h3 class="mb-0">
+                                    <a class="text-dark" href="/announcement/{{ $announcement->id }}">{{ $announcement->title }}</a>
+                                </h3>
+                                <br>
+                                <div class="mb-1 text-muted">{{ $announcement->created_at->toDateString() }}</div>
+                                <p class="card-text mb-auto">{{ $announcement->short_description }}</p>
+                            </div>
+                            <a href="/announcement/{{ $announcement->id }}">Continue reading</a>
+                        </div>
+                        <div class="col-md-4 d-md-flex align-items-center justify-content-end">
+                            <img src="{{ asset($announcement->image) }}" class="img-fluid img-fixed" alt="Card image cap">
+                        </div>
                     </div>
-                    <a href="/announcement/{{$announcement->id}}">Continue reading</a>
                 </div>
-                <div class="col-md-4 d-md-flex align-items-center justify-content-end">
-                    <img src="{{ asset($announcement->image) }}" class="img-fluid img-fixed" alt="Card image cap">
-                </div>
-            </div>
+            @empty
+                <h5 class="mx-4 mt-3">No announcements found for this UKM.</h5>
+            @endforelse
         </div>
-        @empty
-        <div class="container text-center">
-            <h5 class="mx-4 mt-3">Empty</h5>
-        </div>
-        @endforelse
 
     </div>
 
     <x-footer />
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('#ukm-dropdown').on('click', '.dropdown-item', function(event) {
+        event.preventDefault();
+        var ukmId = $(this).data('ukm-id');
 
+        // Make an AJAX request to fetch announcements for the selected UKM
+        $.ajax({
+            url: "{{ url('/announcements') }}", // This should be the URL that returns the filtered announcements
+            type: "GET",
+            data: { ukm_id: ukmId },
+            success: function(data) {
+                // Update the announcements container with the new announcements
+                $('#announcements-container').html($(data).find('#announcements-container').html());
+            }
+        });
+    });
+});
+
+</script>
 </html>
