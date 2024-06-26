@@ -51,7 +51,21 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="card border-0 shadow mt-2 px-2 py-2">
+                                <div class="">
+                                    <div class="body widget">
+                                        <h4>Tags</h4>
+                                        <ul class="list-unstyled categories-clouds m-b-0">
+                                            @foreach($ukm->tags as $tag)
+                                                <li><a class="card-title fw-bold">{{$tag->name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+
                         <div class="col-lg-8">
                             <div class="ps-lg-1-6 ps-xl-5">
                                 <div class="mb-5 wow fadeIn">

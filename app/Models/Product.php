@@ -25,4 +25,5 @@ class Product extends Model
     public function ukm() {
         return $this->belongsTo(Ukm::class);
     }
+
 }

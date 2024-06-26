@@ -400,3 +400,19 @@ p {
         position: relative;
     }
 }
+.categories-clouds li {
+    display: inline-block;
+    margin-bottom: 5px;
+    list-style: none;
+
+}
+
+.categories-clouds li a {
+    display: block;
+    border: 1px solid blue;
+    padding: 6px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    list-style: none;
+
+}

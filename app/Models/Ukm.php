@@ -33,4 +33,8 @@ class Ukm extends Model
     public function products() {
         return $this->hasMany(Product::class);
     }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, 'tags_ukms');
+    }
 }

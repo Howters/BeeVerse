@@ -88,6 +88,11 @@ body,html{
     margin-bottom: 20px;
 }
 
+.addPopUpInput{
+    font-size: large;
+}
+
+
 .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp, .updatePopUp form .addPopUpInput .leftAddPopUp{
     display: flex;
     flex-direction: column;
@@ -145,7 +150,7 @@ body,html{
 .delete-popup{
     padding: 2em;
     border-radius: 20px;
-    background-color: #F29559;
+    background-color: #ede2da;
     width: 50em;
     position: fixed;
     top: 50%;
@@ -195,8 +200,8 @@ body,html{
     padding: .5em 1.5em;
     border-radius: 10px;
     border: none;
-    background-color: #192630;
-    color: #F8CB68;
+    background-color: #0d6efd;
+    color: #f8f8f8;
     box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
@@ -206,8 +211,8 @@ body,html{
     padding: .5em 1.5em;
     border-radius: 10px;
     border: none;
-    background-color: #F8CB68;
-    color: #192630;
+    background-color: #f81d2f;
+    color: #ffffff;
     box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
@@ -381,4 +386,8 @@ body,html{
     section#billboard{
       height: 100vh !important;
     }
+  }
+
+  .form-check-input {
+    margin-right: 10px;
   }

@@ -174,4 +174,4 @@
       preloader.classList.add("hide-preloader");
     });
 
-})(jQuery);
+});

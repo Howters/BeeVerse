@@ -94,3 +94,26 @@
       height: 100vh !important;
     }
   }
+
+
+.categories-clouds li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding-top: 10px;
+}
+
+.categories-clouds li a {
+    display: block;
+    border: 1px solid blue;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: rgb(66, 66, 255);
+}
+
+.categories-clouds li a:hover {
+    color: rgb(65, 65, 161);
+}

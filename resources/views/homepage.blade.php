@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beeverse</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{asset('css/homepage.css')}}"> --}}
     <link rel="stylesheet" href="css/homepage.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -81,6 +80,17 @@
                         <button type="submit" style="background: none; border: none;"><i class="bi bi-search"></i></button>
                     </span>
                     </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Select Tag
+                        </button>
+                        <ul class="dropdown-menu" id="tag-dropdown">
+                            <li><a class="dropdown-item" href="#" data-tag-id="">All</a></li>
+                            @foreach ($tags as $tag)
+                                <li><a class="dropdown-item" href="#" data-tag-id="{{ $tag->id }}">{{ $tag->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
 
                         <i class="bi bi-sort-alpha-down mx-2 sort-icon h3" data-sort="asc"></i>
                         <i class="bi bi-sort-alpha-up sort-icon h3" data-sort="desc"></i>
@@ -95,6 +105,16 @@
                     </div>
                     <div class="card-body" style="overflow-y: auto">
                       <h4 class="card-title fw-bold">{{$ukm->short_name}}</h4>
+                      <div class="">
+                        <div class="body widget">
+                            <ul class="list-unstyled categories-clouds m-b-0">
+                                @foreach($ukm->tags as $tag)
+                                    <li><a class="card-title fw-bold">{{$tag->name}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                      </div>
+
                       <p class="card-text">{{$ukm->short_description}}</p>
                     </div>
                     <div class="card-footer mb-5" style="background: inherit; border-color: inherit;">
@@ -112,12 +132,7 @@
         </div>
 </div>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{asset('js/homepage.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('css/homepage.css')}}">
-
     <x-footer />
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -146,7 +161,25 @@
                 var query = $('input[name="search"]').val();
                 fetchUKMs(query, sort);
             });
+
+
+            $('#tag-dropdown').on('click', '.dropdown-item', function(event) {
+                event.preventDefault();
+                var tagId = $(this).data('tag-id');
+
+                // Make an AJAX request to fetch announcements for the selected UKM
+                $.ajax({
+                    url: "{{ url('/') }}", // This should be the URL that returns the filtered announcements
+                    type: "GET",
+                    data: { tag_id: tagId },
+                    success: function(data) {
+                        // Update the announcements container with the new announcements
+                        $('.container-custom').html($(data).find('.container-custom').html());
+                    }
+                });
+            });
         });
+
 </script>
 
 </html>

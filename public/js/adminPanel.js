@@ -159,7 +159,7 @@ function openModal(id){
     const popUpDel = document.querySelector('.delete-popup')
     popUpDel.style.display = 'block';
     const formDel = document.querySelector('.delete-popup form')
-    formDel.action = "/delete-movie/" + id;
+    formDel.action = "/delete-ukm/" + id;
 }
 
 function closePopupDel(){

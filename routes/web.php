@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UkmController;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Route;
@@ -24,15 +25,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth', 'is_admin')->group(function () {
     Route::get('/admin-panel', [UkmController::class, 'index'])->name('admin.panel');
     Route::post('/add-ukm', [UkmController::class, 'create'])->name('add.ukm');
+    Route::post('/add-tag', [TagController::class, 'create'])->name('add.tag');
     Route::post('/add-announcement', [AnnouncementController::class, 'create'])->name('add.announcement');
     Route::post('/add-product', [ProductController::class, 'create'])->name('add.product');
-    Route::get('/edit-movie/{id}', [MovieController::class, 'show'])->name('edit.movie');
+    Route::get('/edit-ukm/{id}', [UkmController::class, 'edit'])->name('edit.ukm');
     Route::post('/verify-order', [OrderController::class, 'verify'])->name('verify.order');
-    Route::patch('/update-movie/{id}', [MovieController::class, 'update'])->name('update.movie');
-    Route::delete('/delete-movie/{id}', [MovieController::class, 'destroy'])->name('delete.movie');
+    Route::patch('/update-ukm/{id}', [UkmController::class, 'update'])->name('update.ukm');
+    Route::delete('/delete-ukm/{id}', [UkmController::class, 'destroy'])->name('delete.ukm');
 });
 
-Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
+Route::get('/', [UkmController::class, 'homepage'])->name('get.movie.homepage');
 Route::get('login', [AuthenticatedSessionController::class, 'create'])
 ->name('login');
 Route::get('register', [RegisteredUserController::class, 'create'])
